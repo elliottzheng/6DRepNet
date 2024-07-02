@@ -94,7 +94,7 @@ if __name__ == '__main__':
         while True:
             ret, frame = cap.read()
 
-            faces = detector(frame)
+            faces = detector(frame, cv=True) # set cv to True for bgr input, the default value of cv is False
 
             for box, landmarks, score in faces:
 
