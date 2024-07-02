@@ -114,8 +114,7 @@ if __name__ == '__main__':
                 y_max = y_max+int(0.2*bbox_width)
 
                 img = frame[y_min:y_max, x_min:x_max]
-                img = Image.fromarray(img)
-                img = img.convert('RGB')
+                img = Image.fromarray(img[...,::-1])
                 img = transformations(img)
 
                 img = torch.Tensor(img[None, :]).to(device)
